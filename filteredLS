@@ -1,0 +1,15 @@
+var fs = require('fs');
+const path = require('path');
+var file = process.argv[2];
+var filewithdot = '.'+ process.argv[3];
+fs.readdir(file, function(err, list){
+    if(err){
+        console.log('err',err);
+    }else{
+      list.forEach(function(file){
+        if(path.extname(file)===filewithdot){
+            console.log(file);
+        }
+      })
+    }
+});
